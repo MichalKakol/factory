@@ -1,0 +1,146 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Training Factory{% endblock %}
+
+{% block body %}
+
+    <nav class="navbar  navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-success" href="{{ path('app_home') }}">Training Factory Den Haag</a>
+            <div id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-success" aria-current="page" href="{{ path('app_contact') }}">Trainingen</a>
+                    </li>
+                    <li class="nav-item bg-success">
+                        <a class="nav-link active text-dark" href="{{ path('app_login') }}">Inloggen</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    function makeRegistration():string
+    {
+        global $pdo;
+        $email=filter_input(INPUT_POST,'email', FILTER_VALIDATE_EMAIL);
+        $password=filter_input(INPUT_POST, 'password');
+        $firstName=filter_input(INPUT_POST, "firstName");
+        $lastName=filter_input(INPUT_POST, "lastName");
+        if($email!==false && !empty($password) && !empty($firstName) && !empty($lastName)) {
+            $sql = 'SELECT * FROM 'user' WHERE 'email' = :e';
+            $sth = $pdo->prepare($sql);
+            $sth->bindParam(':e',$email);
+            $sth->setFetchMode(PDO::FETCH_CLASS.'User');
+            $sth->execute();
+            $user = $sth->fetch();
+
+            if($user!==false) {
+                return "EXIST";
+            } else {
+                $sth = $pdo->prepare('INSERT INTO user (email,password,first_name,last_name,role) VALUES (?,?,?,?,?)');
+                $sth->bindParam(1, $email);
+                $sth->bindParam(2, $password);
+                $sth->bindParam(3, $firstName);
+                $sth->bindParam(4, $lastName);
+                $sth->execute();
+                return "SUCCESS";
+            }
+        }
+        return "INCOMPLETE"
+    }
+
+
+
+
+
+    case 'register':
+        $titleSuffix = ' | Register';
+
+        if(isset($_POST['register'])) {
+
+            $result = makeRegistration();
+            switch ($result) {
+                case 'SUCCESS':
+                    header("location: /home");
+                    break;
+                case 'INCOMPLETE':
+                    $message="Niet alle velden correct ingevuld";
+                    include_once "../Templates/home/register.php";
+                    break;
+                case 'EXIST':
+                    $message = "gebruiker bestaat al";
+                    include_once "../Templates/home/register.php
+                    break;
+            }
+        } else {
+            include_once "../Templates/home/register.php";
+        }
+        break;
+
+
+
+
+
+    function checkLogin():string
+    {
+        global $pdo;
+        $email=filter_input(INPUT_POST. 'email', FILTER_VALIDATE_EMAIL);
+        $password=filter_input(INPUT_POST, "password');
+
+        if($email!==false && !empty($password))
+    {
+        $sql = 'SELECT * FROM 'user' WHERE 'email'=  :e AND 'password' = :p';
+        $sth = $pdo->prepare
+
+
+
+
+
+
+
+
+    case'login':
+
+        $titleSuffix = ' | login';
+        if(isset($_POST['login;])) {
+            $result = checkLogin();
+
+            switch ($result) {
+                case 'ADMIN':
+                    header("Location: /admin/home"):
+                    // include_once "../Templates/admin/member.php
+                    break;
+                case 'MEMBER':
+                    header("Location: /member/home"):
+                    // include_once "../Templates/admin/member.php
+                    break;
+                case 'INSTRUCTEUR':
+                    header("Location: /instructeur/home"):
+                    // include_once "../Templates/admin/member.php
+                    break;
+                case 'FAILURE':
+                    $message = "Email of password niet correct ingevuld!"
+                    include_once "../Templates/login.html.twig
+                    break;
+                case 'INCOMPLETE':
+                $message = "Formulier niet volledig ingevuld!"
+                include_once "../Templates/login.php
+                break;
+            }
+        } else {
+            include_once "../Templates/login.php
+        }
+    }
+    break;
+
+
+
+
+
+
+
+
+
+{% endblock %}
