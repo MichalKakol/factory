@@ -12,8 +12,15 @@
                 <li class="nav-item bg-success">
                     <a class="nav-link active text-dark" aria-current="page" href="{{ path('app_contact') }}">Trainingen</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-success" href="{{ path('app_home') }}">Inloggen</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-success" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Login
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item text-success" href="{{ path('app_login') }}">Inloggen</a></li>
+                        <li><a class="dropdown-item text-success" href="{{ path('app_register') }}">Registreren</a></li>
+                    </ul>
+
                 </li>
             </ul>
         </div>
@@ -46,5 +53,57 @@
             </div>
         </div>
 </div>
+
+
+    <div class="footer bg-dark text-success">
+        <div class="row">
+            <div class="col-1">
+            </div>
+            <div class="col-4">
+                <h4 class="fw-bold text-success"> Openingstijden </h4>
+                <table class="table text-success fw-semibold">
+                    <tr>
+                        <td>maandag</td>
+                        <td>07.00 - 21.00</td>
+                    </tr>
+                    <tr>
+                        <td>dinsdag</td>
+                        <td>07.00 - 21.00</td>
+                    </tr>
+                    <tr>
+                        <td>woensdag</td>
+                        <td>07.00 - 21.00</td>
+                    </tr>
+                    <tr>
+                        <td>donderdag</td>
+                        <td>07.00 - 21.00</td>
+                    </tr>
+                    <tr>
+                        <td>vrijdag</td>
+                        <td>07.00 - 21.00</td>
+                    </tr>
+                    <tr>
+                        <td>zaterdag</td>
+                        <td>07.00 - 21.00</td>
+                    </tr>
+                    <tr>
+                        <td>zondag</td>
+                        <td>07.00 - 21.00</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-4">
+                <h4 class="fw-bold text-success"> Adres </h4>
+                <p class="text-success"> Tinwerf 16, Den Haag </p>
+                <h4 class="fw-bold text-success"> E-mail </h4>
+                <p class="text-success"> Trainingfactory@denhaag.nl </p>
+            </div>
+            <div class="col-1">
+            </div>
+        </div>
+    </div>
+
 
 {% endblock %}

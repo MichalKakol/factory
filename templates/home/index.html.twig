@@ -8,10 +8,17 @@
             <div id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active text-success" aria-current="page" href="{{ path('app_contact') }}">Trainingen</a>
+                        <a class="nav-link text-success" aria-current="page" href="{{ path('app_contact') }}">Trainingen</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-success" aria-current="page" href="{{ path('app_register') }}">Registeren</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-success" aria-current="page" href="{{ path('app_login') }}">Inloggen</a>
+                    </li>
+
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-success" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle text-success" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Login
                         </a>
                         <ul class="dropdown-menu">
@@ -30,8 +37,30 @@
     <div class="container items-center">
         <div class="row justify-content-evenly">
             <div class="col-4">
-                <h3 class="fw-bold text-success"> Openingstijden </h3>
-                <table class="table table-striped fw-semibold">
+                <h3 class="fw-bold text-success">Kom bij ons boksen!</h3>
+                <p class="fw-semibold">Onze sportschool biedt bokslessen aan die perfect zijn
+                    voor iedereen die op zoek is naar intensieve workout en een gezonde levensstijl.
+                    We willen een positieve en ondersteunende omgeving creëren, waar iedereen welkom
+                    is in te sporten en zichzelf uit te dagen. Onze deskundige trainers zijn er om
+                    je te helpen en te motiveren bij elke stap van je fitnessreis. Dus waar wacht je
+                    nog op? Kom langs en ervaar de voordelen van boksen voor je lichaam en geest. </p>
+            </div>
+            <div class="col-4">
+                <h3 class="fw-bold text-success">Agenda</h3>
+                <p class="fw-semibold">Onze sportschool biedt bokslessen aan die perfect zijn
+                    voor iedereen die op zoek is naar intensieve workout en een gezonde levensstijl.
+                    We willen een positieve en ondersteunende omgeving creëren. </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer bg-dark text-success">
+        <div class="row">
+            <div class="col-1">
+            </div>
+            <div class="col-4">
+                <h4 class="fw-bold text-success"> Openingstijden </h4>
+                <table class="table text-success fw-semibold">
                     <tr>
                         <td>maandag</td>
                         <td>07.00 - 21.00</td>
@@ -62,10 +91,18 @@
                     </tr>
                 </table>
             </div>
-            <div class="col-4">
-                <h3 class="fw-bold text-success">Kom bij ons boksen!</h3>
-                <p class="fw-semibold">Onze sportschool biedt bokslessen aan die perfect zijn voor iedereen die op zoek is naar intensieve workout en een gezonde levensstijl. We willen een positieve en ondersteunende omgeving creëren, waar iedereen welkom is in te sporten en zichzelf uit te dagen. Onze deskundige trainers zijn er om je te helpen en te motiveren bij elke stap van je fitnessreis. Dus waar wacht je nog op? Kom langs en ervaar de voordelen van boksen voor je lichaam en geest. </p>
+            <div class="col-2">
             </div>
+            <div class="col-4">
+                <h4 class="fw-bold text-success"> Adres </h4>
+                <p class="text-success"> Tinwerf 16, Den Haag </p>
+                <h4 class="fw-bold text-success"> E-mail </h4>
+                <p class="text-success"> Trainingfactory@denhaag.nl </p>
+            </div>
+            <div class="col-1">
+            </div>
+        </div>
     </div>
+
 
 {% endblock %}
